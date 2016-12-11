@@ -1,0 +1,6 @@
+<div {?extraClass}class="{extraClass}"{/extraClass} data-xr-widget="{?widgetType}{widgetType}{:else}input{/widgetType}" xr-type="select" {?name}xr-name="{name}"{/name} {?field}xr-field="{field}"{/field} {?format}xr-formatters="{format}"{/format} {?validate}xr-validators="{validate}"{/validate}>
+	{?caption}<label class="xr-input-caption">{caption}</label>{/caption}
+	<div class="xr-input-wrapper">
+		<select class="xr-input-field" {?name}name="{name}"{/name}>
+			{?placeholder}<option name="_" value="" selected disabled>{placeholder}</option>{/placeholder}
+	

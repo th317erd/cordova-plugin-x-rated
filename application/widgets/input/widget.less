@@ -1,0 +1,224 @@
+@defaultInputHeight: 4.4rem;
+@defaultCheckBoxSize: 3rem;
+
+.xr-input {
+	position: relative;
+
+	.xr-input-wrapper {
+		position: relative;
+
+		.xr-input-toggle-visibilty::after {
+			.fa-icon();
+
+			color: #C9C9C9;
+			font-size: 2rem;
+		}
+
+		.xr-input-icon {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			padding: 0 (@defaultPadding * 0.75);
+			transform: translate(0, -50%);
+			font-size: 1.5em;
+			line-height: 1em;
+		}
+	}
+
+	.xr-input-caption {
+		line-height: 1em;
+		vertical-align: top;
+	}
+
+	.xr-input-field {
+		line-height: 1.6rem;
+		min-height: @defaultInputHeight;
+		width: 100%;
+		box-sizing: border-box;
+		padding: (@defaultPadding * 0.6) @defaultPadding;
+		transition: border-color @themeAnimationTime @themeAnimationFunction;
+		zoom: 1;
+	}
+
+	.xr-input-toggle-visibilty {
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		right: 0.5rem;
+		transform: translateY(-50%);
+		z-index: 2;
+		padding: 0 0.5rem;
+	}
+
+	&.xr-required .xr-input-caption::before {
+		content: '* ';
+	}
+
+	&:not(.xr-password-hidden) .xr-input-wrapper .xr-input-toggle-visibilty::after {
+		content: @fa-var-eye-slash;
+	}
+
+	&.xr-password-hidden .xr-input-wrapper .xr-input-toggle-visibilty::after {
+		content: @fa-var-eye;
+	}
+
+	&[xr-type="button"] {
+		box-sizing: border-box;
+		line-height: 1em;
+		padding: (@defaultPadding * 0.8) (@defaultPadding * 0.8);
+		text-align: center;
+
+		.xr-input-caption {
+			font-size: 1.3rem;
+			margin: 0;
+
+			&.xr-has-icon {
+    		padding-left: @defaultPadding;
+
+    		&::before {
+    			.fa-icon();
+
+	    		font-size: (@defaultInputHeight * 0.4545);
+			    width: 1em;
+			    height: 1em;
+			    position: absolute;
+			    top: 50%;
+			    left: (@defaultPadding * 0.5);
+			    transform: translate(0, -50%);	
+    		}
+			}
+		}
+	}
+
+	&[xr-type="textarea"] {
+		.xr-input-field {
+			min-height: 8rem;
+			resize: none;
+		}
+	}
+
+	&[xr-type="select"] {
+		.xr-input-field {
+			padding: 0.75rem;
+		}
+	}
+
+	&:not([xr-type="radio"]):not([xr-type="checkbox"]):not([xr-type="button"]) {
+		&.xr-state-error:not(.xr-no-modify-caption) .xr-input-caption::after {
+			color: red;
+			content: ': (' attr(xr-validate-message) ')';
+		}
+
+		&.xr-state-error.xr-no-modify-caption .xr-input-caption::after {
+			color: red;
+			content: ' (' attr(xr-validate-message) ')';
+		}
+
+		.xr-input-caption {
+			display: block;
+			margin-bottom: (@defaultPadding * 0.4);
+		}
+
+		&:not(.xr-no-modify-caption) .xr-input-caption::after {
+			content: ':';
+		}
+
+		.xr-input-field {
+			border-width: 1px;
+			border-style: solid;
+		}
+	}
+
+	&[xr-type="radio"],
+	&[xr-type="checkbox"] {
+		.xr-input-wrapper {
+			min-height: @defaultInputHeight;
+		}
+
+		.xr-input-caption {
+			display: inline-block;
+			line-height: @defaultInputHeight;
+			padding-left: (@defaultCheckBoxSize * 1.25);
+			white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+		}
+
+		.xr-input-field {
+			position: absolute;
+			top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+    	opacity: 0;
+    	z-index: 2;
+		}
+
+		.xr-input-field + .xr-input-caption::before {
+			.fa-icon();
+
+			position: absolute;
+	    font-size: @defaultCheckBoxSize;
+	    top: 50%;
+	    left: ((@defaultCheckBoxSize * 1.25) - (@defaultCheckBoxSize * 0.8573333333333333)) / 2;
+	    transform: translate(0,-50%);
+		}
+
+		&.xr-state-error .xr-input-caption::after {
+			color: red;
+			content: ' (' attr(xr-validate-message) ')';
+		}
+	}
+
+	&[xr-type="radio"] {
+		.xr-input-field:checked + .xr-input-caption::before {
+			content: @fa-var-check-circle;
+			pointer-events: none;
+		}
+
+		.xr-input-field:not(:checked) + .xr-input-caption::before {
+			content: @fa-var-circle-o;
+		}	
+	}
+	
+	&[xr-type="checkbox"] {
+		.xr-input-field:checked + .xr-input-caption::before {
+			content: @fa-var-check-square;
+		}
+
+		.xr-input-field:not(:checked) + .xr-input-caption::before {
+			content: @fa-var-square-o;
+			font-size: (@defaultCheckBoxSize * 1.0833333333333333);
+    	margin-top: 0.2rem;
+		}	
+	}
+}
+
+.xr-input {
+	.theme(xr-input);
+}
+
+.xr-input:not([xr-type="radio"]):not([xr-type="checkbox"]):not([xr-type="button"]) {
+	.theme(xr-input-type-text);
+}
+
+.xr-input[xr-type="button"] {
+	.theme(xr-input-type-button);
+}
+
+.xr-input[xr-type="radio"] {
+	.theme(xr-input-type-radio);
+}
+
+.xr-input[xr-type="checkbox"] {
+	.theme(xr-input-type-checkbox);
+}
+
+.xr-input[xr-type="textarea"] {
+	.theme(xr-input-type-textarea);
+}

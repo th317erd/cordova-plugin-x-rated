@@ -1,0 +1,7 @@
+<div {?extraClass}class="{extraClass}"{/extraClass} data-xr-widget="{?widgetType}{widgetType}{:else}input{/widgetType}" xr-type="text" {?name}xr-name="{name}"{/name} {?field}xr-field="{field}"{/field} {?format}xr-formatters="{format}"{/format} {?validate}xr-validators="{validate}"{/validate}>
+	{?caption}<label class="xr-input-caption"><span>{caption}</span></label>{/caption}
+	<div class="xr-input-wrapper {?icon}xr-input-has-icon{/icon}">
+		<input class="xr-input-field" type="{?type}{type}{:else}text{/type}" {?name}name="{name}"{/name} {?value}value="{value}"{/value} {?placeholder}placeholder="{placeholder}"{:else}{?caption}placeholder="{caption}"{/caption}{/placeholder} {?min}min="{min}"{/min} {?max}max="{max}"{/max} {@loop items="." key="key" value="action" keyFilter="^action-"}xr-{key}="{action}" {/loop}>
+		{?icon}<div class="xr-input-icon" xr-action-tap="{icon-action}"><span class="{icon}"></span></div>{/icon}
+	</div>
+</div>

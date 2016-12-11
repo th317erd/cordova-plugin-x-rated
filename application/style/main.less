@@ -1,0 +1,57 @@
+/* order: M4 */
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html, body {
+	font-size: 10px;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+*.xr-loading > *:not(.xr-waitingScreen) {
+	display: none !important;
+}
+
+input {
+	outline: none;
+	padding: 0.75rem;
+	box-sizing: border-box;
+}
+
+.xr-hide {
+	display: none !important;
+}
+
+.xr-clear {
+	clear: both;
+}
+
+.xr-force-max-height {
+	max-height: 99999px !important;
+}
+
+.xr-image {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+.xr-image:not(.xr-image-loaded)::before {
+	.fa-icon();
+
+	content: @fa-var-spinner;
+	animation: rotate360 2s infinite linear;
+	font-size: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -2rem;
+  margin-left: -2rem;
+}

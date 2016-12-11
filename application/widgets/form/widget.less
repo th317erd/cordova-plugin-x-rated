@@ -1,0 +1,34 @@
+.xr-form {
+	font-size: 1.2rem;
+	color: @themeColorBlack2;
+
+	.xr-form-body {
+		& .xr-input:not([xr-type="radio"]):not([xr-type="checkbox"]) {
+			margin-bottom: (@defaultPadding * 0.8);	
+		}
+
+		& > h1 {
+			font-size: 1.4rem;
+			margin-bottom: (@defaultPadding * 0.8);		
+		}
+
+		.xr-sep {
+			position: relative;
+			padding: 1.2rem 0;
+			width: 75%;
+    	margin-top: 0rem;
+    	margin-left: auto;
+    	margin-right: auto;
+
+			& hr {
+				border-top-width: 1px;
+				border-style: solid;
+				border-color: rgba(0,0,0,0.1);
+			}
+		}
+	}
+}
+
+.xr-form {
+	.theme(xr-form);
+}

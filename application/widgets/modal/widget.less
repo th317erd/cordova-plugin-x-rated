@@ -1,0 +1,25 @@
+.xr-modal {
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: (@defaultPadding * 2) @defaultPadding;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch !important;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.7);
+
+  .xr-modal-body {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 25%;
+  }
+}
+
+.xr-modal {
+  .theme(xr-modal);
+}

@@ -1,0 +1,54 @@
+.xr-waitingScreen {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 2000;
+}
+
+.xr-waitingScreen p {
+	position: absolute;
+	font-size: 3rem;
+	width: 100%;
+	top: 63%;
+	text-align: center;
+	color: white;
+}
+
+.xr-waitingScreen .xr-spinner {
+	position: absolute;
+	font-size: 50px;
+	color: white;
+	width: 1em;
+	height: 1em;
+	transform: translate(-50%, -50%);
+}
+
+.xr-waitingScreen .xr-spinner:nth-child(1) {
+	left: 50%;
+  top: 50%;
+  transform: translate(-23%, -116%);	
+}
+
+.xr-waitingScreen .xr-spinner:nth-child(2) {
+	left: 50%;
+	top: 50%;
+	transform: translate(-66%, -50%);
+}
+
+.xr-waitingScreen .xr-spinner:nth-child(3) {
+	left: 50%;
+  top: 50%;
+  transform: translate(-23%, 16%);
+}
+
+.xr-waitingScreen .xr-spinner::before {
+	.fa-icon();
+
+	content: @fa-var-cog;
+	animation: rotate360 2s infinite linear;
+}
+
+.xr-waitingScreen .xr-spinner:nth-child(2)::before {
+	animation-direction: reverse;
+}

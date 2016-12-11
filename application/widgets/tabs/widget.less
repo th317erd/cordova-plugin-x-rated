@@ -1,0 +1,47 @@
+@tabsButtonsSize: 5rem;
+
+.xr-tabs {
+	width: 100%;
+	min-height: 100%;
+
+	.xr-tabs-buttons {
+		display: table;
+		position: relative;
+		width: 100%;
+		height: @tabsButtonsSize;
+		table-layout: fixed;
+
+		.xr-button {
+			font-size: 1.4rem;
+			display: table-cell;
+			box-sizing: border-box;
+			width: 100%;
+			height: @tabsButtonsSize;
+			line-height: @tabsButtonsSize;
+			padding: 0 1rem;
+			text-align: center;
+		}
+
+		.xr-button:not(.xr-active) {
+		}
+
+		.xr-button.xr-active {
+			text-decoration: underline;
+		}
+	}
+
+	.xr-tabs-body {
+		position: relative;
+		width: 100%;
+		padding: @defaultPadding;
+		box-sizing: border-box;
+
+		.xr-tabs-page:not(.xr-active) {
+			display: none !important;
+		}
+	}
+}
+
+.xr-tabs {
+	.theme(xr-tabs);
+}

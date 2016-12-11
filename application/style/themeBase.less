@@ -1,0 +1,44 @@
+/* order: M0 */
+
+.theme(@_) {
+}
+
+@themeAnimationTime: 250ms;
+@themeAnimationFunction: ease;
+
+@errorColor: red;
+@defaultBorderColor: #DDD;
+@defaultPadding: 2rem;
+
+/* Element states */
+.active(@body) {
+	&.xr-state-active, &:active { @body(); };
+}
+.disabled(@body) {
+	&.xr-state-disabled, &:disabled { @body(); };
+}
+.focus(@body) {
+	&.xr-state-focused, &:focus { @body(); };
+}
+.hover(@body) {
+	&.xr-state-hover, &:hover { @body(); };
+}
+.error(@body) {
+	&.xr-state-error { @body(); };
+}
+.warning(@body) {
+	&.xr-state-warning { @body(); };
+}
+
+.transition(@property; @duration: @themeAnimationTime; @func: @themeAnimationFunction; @delay: 0ms) {
+	transition+: @property @duration @func @delay;
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

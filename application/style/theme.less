@@ -1,0 +1,84 @@
+/* order: M2 */
+
+@themeColor1: #FFF;
+@themeColor2: #EEE;
+@themeColor3: #555;
+@themeColor4: #888;
+@themeColor5: #DE4;
+@themeColor6: #CD2;
+
+.theme(xr-input) {
+	&[xr-type="radio"],
+	&[xr-type="checkbox"] {
+		.xr-input-field:checked + .xr-input-caption::before {
+			color: @themeColor5;
+		}
+	}
+}
+
+.theme(xr-input-type-text) {
+	.xr-input-field {
+		background-color: @themeColor1;
+		border-color: @themeColor2;
+
+		.focus({
+			border-color: @themeColor4;
+		});
+	}
+
+	.error({
+		.xr-input-field {
+			border-color: @errorColor;
+			color: @errorColor;	
+		}
+	});	
+}
+
+.theme(xr-input-type-button) {
+	background-color: @themeColor5;
+	color: @themeColor1;
+
+	.active({
+		background-color: @themeColor6;
+		opacity: 0.75;
+	});
+
+	.disabled({
+		background-color: @themeColor2;
+		color: @themeColor3;
+	});
+}
+
+.theme(xr-modal) {
+	.xr-modal-body {
+		background-color: @themeColor1;
+	}
+}
+
+.theme(xr-tabs) {
+	.xr-tabs-buttons {
+		.xr-button:not(.xr-active) {
+			background-color: @themeColor2;
+			color: @themeColor4;
+		}
+
+		.xr-button.xr-active {
+			background-color: @themeColor1;
+			color: @themeColor3;
+			text-decoration: underline;
+		}
+	}
+}
+
+.theme(xr-page) {
+	.xr-expand-button {
+		background-color: rgba(0,0,0,0.5);
+		color: @themeColor1;
+	}
+}
+
+.theme(xr-homePage) {
+	.xr-locationDetails {
+		color: @themeColor4;
+	}
+}

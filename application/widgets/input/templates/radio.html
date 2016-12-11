@@ -1,0 +1,6 @@
+<div {?extraClass}class="{extraClass}"{/extraClass} data-xr-widget="{?widgetType}{widgetType}{:else}input{/widgetType}" xr-type="radio" {?name}xr-name="{name}"{/name} {?field}xr-field="{field}"{/field} {?format}xr-formatters="{format}"{/format} {?validate}xr-validators="{validate}"{/validate}>
+	<div class="xr-input-wrapper">
+		<input class="xr-input-field" type="radio" {?field}name="{field}"{/field} {?name}value="{name}"{/name} {?placeholder}placeholder="{placeholder}"{:else}{?caption}placeholder="{caption}"{/caption}{/placeholder} {?selected}checked{/selected}>
+		{?caption}<label class="xr-input-caption"><span>{caption}</span></label>{/caption}
+	</div>
+</div>
